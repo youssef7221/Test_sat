@@ -28,41 +28,43 @@ class ThirdScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor:const Color(0XFFf9fafb),
       appBar: buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.only(right: 15,left: 15,top: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-           const MySearchBar(),
-            MySizedBoxes.sizedbox_03(context),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .05,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return myChips[index];
-                },
-                itemCount: myChips.length,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(right: 15,left: 15,top: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+             const MySearchBar(),
+              MySizedBoxes.sizedbox_03(context),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .05,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return myChips[index];
+                  },
+                  itemCount: myChips.length,
+                ),
               ),
-            ),
-            MySizedBoxes.sizedbox_02(context),
-            const SeeAll(headpath: "Hot topics"),
-            MySizedBoxes.sizedbox_02(context),
-            CarouselSlider(items: myScrollablephotos,
-                options: CarouselOptions(
-      height: MediaQuery.of(context).size.height*.2,
-                  enableInfiniteScroll: false,
-                  viewportFraction: 1
-            )),
-        MySizedBoxes.sizedbox_03(context),
-            const Text("Get Tips",style: TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 18
-        ),),
-            MySizedBoxes.sizedbox_01(context),
-            const DoctorContainer(),
-            const SeeAll(headpath: "Cycle Phases and Period")
-          ],
+              MySizedBoxes.sizedbox_02(context),
+              const SeeAll(headpath: "Hot topics"),
+              MySizedBoxes.sizedbox_02(context),
+              CarouselSlider(items: myScrollablephotos,
+                  options: CarouselOptions(
+        height: MediaQuery.of(context).size.height*.2,
+                    enableInfiniteScroll: false,
+                    viewportFraction: 1
+              )),
+          MySizedBoxes.sizedbox_03(context),
+              const Text("Get Tips",style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 18
+          ),),
+              MySizedBoxes.sizedbox_01(context),
+              const DoctorContainer(),
+              const SeeAll(headpath: "Cycle Phases and Period")
+            ],
+          ),
         ),
       ),
     );
